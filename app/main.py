@@ -7,6 +7,8 @@ from app.models.category import Category
 from app.models.transaction import Transaction
 from app.routers import user as user_router  
 from app.routers import category as category_router
+from app.routers import transaction as transaction_router
+
 
 app = FastAPI(title="Expense Tracker API")
 
@@ -19,6 +21,7 @@ async def startup():
 # 👇 регистрируем роутер
 app.include_router(user_router.router)
 app.include_router(category_router.router)
+app.include_router(transaction_router.router)
 
 @app.get("/")
 async def root():
